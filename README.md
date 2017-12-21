@@ -1,4 +1,4 @@
-#Willybot900
+# Willybot900
 
 This is my attempt at learning Python while building a quotes bot for Scarizard's Discord server.
 Most likely not useful to anyone outside of the ScarizardPlays community, but you be the judge.
