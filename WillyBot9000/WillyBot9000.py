@@ -1,6 +1,7 @@
 import discord
 import asyncio
 
+#globals
 quote_list = []
 scarizard_server = None
 mod_role = None
@@ -23,7 +24,7 @@ async def on_ready():
     print("Logged in as")
     print(client.user.name)
     print(client.user.id)
-    scarizard_server = client.get_server("server id here")
+    scarizard_server = client.get_server("redacted")
     mod_role = discord.utils.get(scarizard_server.roles, name="Scariguards")
     subscriber_role = discord.utils.get(scarizard_server.roles, name="Submeleons")
     print("Bot running...")
@@ -31,6 +32,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     global quotes_on_cooldown
+    global quote_list
     if message.content.startswith("!quote") and not quotes_on_cooldown:
         if message.author.top_role >= subscriber_role:
             quotes_on_cooldown = True
@@ -46,16 +48,16 @@ async def on_message(message):
         else:
             print("Not authorized to request quote: " + message.author.name)
     if message.content.startswith("!addquote"):
-        if message.author.top_role >= mod_role or message.author.id == "author id here":
+        if message.author.top_role >= mod_role or message.author.id == "redacted":
             with open("quotes.txt", "a", encoding="utf-8") as quotes:
                 try:
-                    new_quote = message.content[7:]
-                    quote_list.append(newQuote)
-                    quotes.write(newQuote)
-                    await client.send_message(message.channel, "Added quote number " + len(quote_list))
+                    new_quote = message.content[10:]
+                    quote_list.append(new_quote)
+                    quotes.write(new_quote + "\n")
+                    await client.send_message(message.channel, "Added quote number " + str(len(quote_list) - 1))
                 except:
                     print("error saving quote:  " + message.content)
         else:
-            print("Not authorized to add quote: " + message.author.name)  
+            print("Not authorized to add quote: " + message.author.name)
 
-client.run('bot token here')
+client.run('redacted')
