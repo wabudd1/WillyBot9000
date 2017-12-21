@@ -1,5 +1,6 @@
 import discord
 import asyncio
+import random
 
 #globals
 quote_list = []
@@ -47,7 +48,7 @@ async def on_message(message):
                 quotes_on_cooldown = False
         else:
             print("Not authorized to request quote: " + message.author.name)
-    if message.content.startswith("!addquote"):
+    elif message.content.startswith("!addquote"):
         if message.author.top_role >= mod_role or message.author.id == "redacted":
             with open("quotes.txt", "a", encoding="utf-8") as quotes:
                 try:
@@ -59,5 +60,12 @@ async def on_message(message):
                     print("error saving quote:  " + message.content)
         else:
             print("Not authorized to add quote: " + message.author.name)
+    elif message.content.startswith("!randomquote"):
+        if message.author.top_role >= subscriber_role:
+            random_quote_index = random.randint(0, len(quote_list) - 1)
+            quotes_on_cooldown = True
+            await client.send_message(message.channel, quote_list[random_quote_index] + "(Quote #" + str(random_quote_index) + ")")
+            await asyncio.sleep(quote_cooldown_length)
+            quotes_on_cooldown = False
 
 client.run('redacted')
