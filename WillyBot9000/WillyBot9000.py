@@ -46,7 +46,7 @@ async def on_message(message):
         else:
             print("Not authorized to request quote: " + message.author.name)
     if message.content.startswith("!addquote"):
-        if message.author.top_role >= mod_role or message.author.id == "my id here":
+        if message.author.top_role >= mod_role or message.author.id == "author id here":
             with open("quotes.txt", "a", encoding="utf-8") as quotes:
                 try:
                     new_quote = message.content[7:]
@@ -56,6 +56,6 @@ async def on_message(message):
                 except:
                     print("error saving quote:  " + message.content)
         else:
-            print("Not authorized to add quote: " + message.author.name)    
+            print("Not authorized to add quote: " + message.author.name)  
 
-client.run('token string here')
+client.run('bot token here')

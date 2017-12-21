@@ -3,13 +3,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>2af81447-30bd-4ed0-83d9-05cdbcf5fb4c</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
-    <StartupFile>WillyBoy9000.py</StartupFile>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>WillyBot9000.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>WillyBoy9000</Name>
+    <Name>WillyBot9000</Name>
     <RootNamespace>WillyBoy9000</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -21,7 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="WillyBoy9000.py" />
+    <Compile Include="WillyBot9000.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
